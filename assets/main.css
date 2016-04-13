@@ -1,15 +1,69 @@
-*{
-    margin: 0;
-    padding: 0;
+/* https://css-tricks.com/box-sizing/ */
+html {
+    box-sizing: border-box;
 }
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body{
+    font-family: arial, sans-serif;
+    font-size: 14px;
+}
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+/* http://nicolasgallagher.com/micro-clearfix-hack/ */
+.cf:after {
+    clear: both;
+}
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+    *zoom: 1;
+}
+/* top nav */
+.navbar{
+    margin: 30px 60px 30px 30px;
+    text-align: right;
+}
+.navbar li, .footer li{
+    display: inline;
+    padding: 9px;
+}
+.navbar a, .footer a{
+    color: #666;
+    text-decoration: none;
+    display: inline-block;
+}
+.navbar a:hover, .navbar a:focus, .footer a:hover, .footer a:focus{
+    text-decoration: underline;
+    outline: 0;
+    color: #800000;
+}
+.signin{
+    background: #4485f3;
+    border-radius: 3px;
+}
+.signin a{
+    font-weight: bold;
+    color: #fff;
+}
+.signin a:focus, .signin a:hover{
+    color: #ff0;
+}
+/* searchform and logo */
 .main{
-    width: 600px;
     height: 250px;
+    left: 50%;
     margin: -125px 0 0 -300px;
     position: absolute;
-    top: 50%;
-    left: 50%;
     text-align: center;
+    top: 40%;
+    width: 600px;
 }
 #s-input{
     width: 525px;
@@ -18,19 +72,19 @@
     padding: 5px 9px 0;
     border: 1px solid #d9d9d9;
 }
-    #s-input:hover{
-        border-color: #a0a0a0;
-        outline: 0;
-    }
-    #s-input:active, #s-input:focus{
-        border-color: #4d90fe;
-        outline: 0;
-    }
+#s-input:hover{
+    border-color: #a0a0a0;
+    outline: 0;
+}
+#s-input:active, #s-input:focus{
+    border-color: #4d90fe;
+    outline: 0;
+}
 .b-search{
     margin: 1em 0;
 }
 .b-search input{
-    backgound-color: #f2f2f2;
+    background-color: #f2f2f2;
     border: 1px solid #f2f2f2;
     border-radius: 2px;
     color: #757575;
@@ -38,8 +92,24 @@
     padding: 1em;
     margin: 11px 4px;
 }
-    .b-search input:hover, .b-search input:focus{
-        border-color: #000;
-        color: #000;
-        outline: 0;
-    }
+.b-search input:hover, .b-search input:focus{
+    border-color: #000;
+    color: #000;
+    outline: 0;
+}
+/* footer */
+.footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #f2f2f2;
+}
+.fL{
+    float: left;
+    padding: 10px 0;
+}
+.fR{
+    float: right;
+    padding: 10px 0;
+}
